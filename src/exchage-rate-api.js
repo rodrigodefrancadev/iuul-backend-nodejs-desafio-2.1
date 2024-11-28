@@ -2,7 +2,6 @@
 
 import axios from 'axios';
 import { Currency } from './currency';
-import { Amount } from './amount';
 
 export class ExchangeRateApi {
 
@@ -20,12 +19,11 @@ export class ExchangeRateApi {
     /**
      * @param {Currency} from Moeda a ser convertida
      * @param {Currency} to Moeda de destino
-     * @param {Amount} amount Valor a ser convertido    
      * @returns {Promise<PairConvertionResponse>} The conversion rate
      */
     async pairConvertion(from, to, amount) {
         /** @type {axios.AxiosResponse<PairConvertionResponse, any>} */
-        const response = await this.#api.get(`/pair/${from}/${to}/${amount}`);
+        const response = await this.#api.get(`/pair/${from}/${to}`);
         return response.data;
     }
 }
