@@ -23,7 +23,7 @@ export class Amount {
             throw new Error('Valor precisa ser maior que 0');
         }
 
-        if (value % 1 !== 0 && value.toString().split('.')[1].length > 4) {
+        if (value % 1 !== 0 && value.toString().split('.')[1].length > 2) {
             throw new Error('Valor precisa ter até 4 casas decimais');
         }
 
