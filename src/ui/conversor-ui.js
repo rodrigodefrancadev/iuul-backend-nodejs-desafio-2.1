@@ -1,9 +1,9 @@
 // @ts-check
 
-import { Conversor } from "./conversor.js";
-import { Amount } from "./entities/amount.js";
-import { Currency } from "./entities/currency.js";
-import { IO } from "./helpers/io.js";
+import { Conversor } from "../app/conversor.js";
+import { Amount } from "../app/entities/amount.js";
+import { Currency } from "../app/entities/currency.js";
+import { IO } from "./io.js";
 
 export class ConversorUI {
 
