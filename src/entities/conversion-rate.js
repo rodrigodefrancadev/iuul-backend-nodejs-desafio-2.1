@@ -1,6 +1,6 @@
 // @ts-check
 
-import { Amount } from "./amount";
+import { Amount } from "./amount.js";
 
 export class ConversionRate {
 
@@ -31,12 +31,12 @@ export class ConversionRate {
      */
     convert(amount) {
         const newValue = amount.value * this.#value;
-        const newValueNormalized = Number(newValue.toFixed(4));
+        const newValueNormalized = Number(newValue.toFixed(2));
         return new Amount(newValueNormalized);
     }
 
     toString() {
-        return this.#value.toFixed(4);
+        return this.#value.toFixed(6);
     }
 
 }
