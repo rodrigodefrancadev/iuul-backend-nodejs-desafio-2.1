@@ -1,9 +1,9 @@
 // @ts-check
 
-import { Amount } from "./entities/amount";
-import { ConversionRate } from "./entities/conversion-rate";
-import { Currency } from "./entities/currency";
-import { ExchangeRateApi } from "./exchage-rate-api";
+import { Amount } from "./entities/amount.js";
+import { ConversionRate } from "./entities/conversion-rate.js";
+import { Currency } from "./entities/currency.js";
+import { ExchangeRateApi } from "./exchage-rate-api.js";
 
 
 export class Conversor {
