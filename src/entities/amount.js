@@ -12,7 +12,7 @@ export class Amount {
      * @param {number} value - O valor
      * @throws {Error} - Se o valor não for um number.
      * @throws {Error} - Se o valor for menor ou igual a 0.
-     * @throws {Error} - Se o valor tiver mais de 4 casas decimais.
+     * @throws {Error} - Se o valor tiver mais de 2 casas decimais.
      */
     constructor(value) {
         if (typeof value !== 'number') {
@@ -24,13 +24,13 @@ export class Amount {
         }
 
         if (value % 1 !== 0 && value.toString().split('.')[1].length > 2) {
-            throw new Error('Valor precisa ter até 4 casas decimais');
+            throw new Error('Valor precisa ter até 2 casas decimais');
         }
 
         this.#value = value;
     }
 
     toString() {
-        return this.#value.toFixed(4);
+        return this.#value.toFixed(2).replace('.', ',');
     }
 }
