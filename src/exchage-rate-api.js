@@ -1,7 +1,7 @@
 // @ts-check
 
 import axios from 'axios';
-import { Currency } from './entities/currency';
+import { Currency } from './entities/currency.js';
 
 export class ExchangeRateApi {
 
@@ -23,8 +23,17 @@ export class ExchangeRateApi {
      */
     async pairConvertion(from, to) {
         /** @type {axios.AxiosResponse<PairConvertionResponse, any>} */
-        const response = await this.#api.get(`/pair/${from}/${to}`);
-        return response.data;
+        try {
+            const response = await this.#api.get(`/pair/${from}/${to}/1.00`);
+            return response.data;
+        } catch (error) {
+            if (error.response && error.response.data) {
+                return error.response.data;
+            }
+            else {
+                return { result: "error", "error-type": "unknown" };
+            }
+        }
     }
 }
 
