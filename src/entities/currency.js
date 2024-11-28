@@ -31,4 +31,11 @@ export class Currency {
     toString() {
         return this.#code;
     }
+
+    /**
+     * @param {Currency} other
+     */
+    equals(other) {
+        return this.#code === other.#code;
+    }
 }
