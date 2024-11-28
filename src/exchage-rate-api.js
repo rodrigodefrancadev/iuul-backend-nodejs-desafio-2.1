@@ -1,7 +1,7 @@
 // @ts-check
 
 import axios from 'axios';
-import { Currency } from './currency';
+import { Currency } from './entities/currency';
 
 export class ExchangeRateApi {
 
@@ -21,7 +21,7 @@ export class ExchangeRateApi {
      * @param {Currency} to Moeda de destino
      * @returns {Promise<PairConvertionResponse>} The conversion rate
      */
-    async pairConvertion(from, to, amount) {
+    async pairConvertion(from, to) {
         /** @type {axios.AxiosResponse<PairConvertionResponse, any>} */
         const response = await this.#api.get(`/pair/${from}/${to}`);
         return response.data;
@@ -51,6 +51,6 @@ export class ExchangeRateApi {
 /**
 * @typedef {{
 *  result: "error",
-* "error-type": string
+*  "error-type": string
 * }} PairConvertionErrorResponse
 */
